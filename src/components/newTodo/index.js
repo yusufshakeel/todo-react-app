@@ -13,7 +13,8 @@ class NewTodoComponent extends Component {
 				<input 
 					type='text'
 					className="form-control"
-					{...field.input}/>
+					{...field.input}
+					maxLength={field.maxLength} />
 
 				<div className="text-help">
 				{field.meta.touched ? field.meta.error : ''}
@@ -29,7 +30,8 @@ class NewTodoComponent extends Component {
 				<textarea
 					className="form-control resize-none"
 					{...field.input}
-					rows="3"></textarea>
+					rows="3"
+					maxLength={field.maxLength}></textarea>
 					
 				<div className="text-help">
 				{field.meta.touched ? field.meta.error : ''}
@@ -64,14 +66,14 @@ class NewTodoComponent extends Component {
 								label="Title"
 								name='title'
 								type='text'
-								maxlength='100'
+								maxLength='100'
 								component={this.renderInputField}/>
 
 							<Field 
 								label="Description"
 								name='description'
 								type='text'
-								maxlength='1000'
+								maxLength='1000'
 								component={this.renderTextField}/>
 
 							<button
