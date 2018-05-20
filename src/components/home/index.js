@@ -3,10 +3,16 @@ import React, { Component } from 'react';
 import HeaderComponent from '../header';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { fetchTodo } from '../../actions/index';
 
 class HomeComponent extends Component {
 
+	componentDidMount() {
+		this.props.fetchTodo();
+	}
+
 	renderTodoList() {
+
 		return _.map(this.props.todo, item => {
 			return (
 				<li key={item.id}
@@ -19,6 +25,7 @@ class HomeComponent extends Component {
 				</li>
 			);
 		});
+
 	}
 
 	render() {
@@ -45,4 +52,4 @@ function mapStateToProps(state) {
 	};
 }
 
-export default connect(mapStateToProps)(HomeComponent);
+export default connect(mapStateToProps, {fetchTodo})(HomeComponent);

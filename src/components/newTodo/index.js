@@ -1,47 +1,59 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import HeaderComponent from '../header/index';
+import { createTodo } from '../../actions/index';
 
 class NewTodoComponent extends Component {
 
 	renderInputField(field) {
+
+		const { meta: { touched, error } } = field;
+		const className = `form-control ${ touched && error ? "is-invalid" : "" }`;
+
 		return (
 			<div className="form-group">
 				<label>{field.label}</label>
 				<input 
 					type='text'
-					className="form-control"
+					className={className}
 					{...field.input}
 					maxLength={field.maxLength} />
 
-				<div className="text-help">
-				{field.meta.touched ? field.meta.error : ''}
+				<div className="invalid-feedback">
+				{ touched ?  error : ''}
 				</div>
 			</div>
 		);
 	}
 
 	renderTextField(field) {
+		
+		const { meta: { touched, error } } = field;
+		const className = `form-control resize-none ${ touched && error ? "is-invalid" : "" }`;
+
 		return (
 			<div className="form-group">
 				<label>{field.label}</label>
 				<textarea
-					className="form-control resize-none"
+					className={className}
 					{...field.input}
 					rows="3"
 					maxLength={field.maxLength}></textarea>
 					
-				<div className="text-help">
-				{field.meta.touched ? field.meta.error : ''}
+				<div className="invalid-feedback">
+				{ touched ? error : ''}
 				</div>
 			</div>
 		);
 	}
 
 	onFormSubmit(values) {
-		console.log(values);
+		this.props.createTodo(values, () => {
+    		this.props.history.push("/");
+    	});
 	}
 
 	render() {
@@ -107,4 +119,4 @@ function validate(values) {
 export default reduxForm({
 	validate,
 	form: 'NewTodoForm'
-})(NewTodoComponent);
+})(connect(null, { createTodo })(NewTodoComponent));
