@@ -29,7 +29,7 @@ class HomeComponent extends Component {
 						<HeaderComponent />
 					</div>
 				</div>
-				<div className="row">
+				<div className="row mt-3">
 					<div className="col-xs-12 col-sm-6 offset-sm-3">
 						{this.renderTodoList()}
 					</div>
