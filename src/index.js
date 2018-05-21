@@ -11,6 +11,8 @@ import './style.css';
 
 import HomeComponent from './components/home/index';
 import NewTodoComponent from './components/newTodo/index';
+import DoneComponent from './components/done/index';
+import DeletedComponent from './components/deleted/index';
 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
@@ -19,6 +21,8 @@ ReactDOM.render(
 		<BrowserRouter>
 			<Switch>
 				<Route path="/new" component={NewTodoComponent} />
+				<Route path="/deleted" component={DeletedComponent} />
+				<Route path="/done" component={DoneComponent} />
 				<Route path="/" component={HomeComponent} />
 			</Switch>
 		</BrowserRouter>

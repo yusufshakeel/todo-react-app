@@ -1,26 +1,46 @@
 {
-  "active": [
+  "todo": [
     {
       "id": 1,
       "title": "Breakfast @ 7am",
-      "description": "Breakfast at 7am with family."
+      "description": "Breakfast at 7am with family.",
+      "status": "ACTIVE"
     },
     {
       "title": "office meeting at 10am",
       "description": "subject: apis for the mobile app.",
-      "id": 2
+      "id": 2,
+      "status": "ACTIVE"
     },
     {
       "title": "team lunch",
       "description": "lunch at 1pm with the office team.",
-      "id": 3
+      "id": 3,
+      "status": "ACTIVE"
     },
     {
       "title": "evening call",
       "description": "skype call at 4pm with app team.",
-      "id": 4
+      "id": 4,
+      "status": "ACTIVE"
+    },
+    {
+      "title": "dinner @ 9",
+      "description": "Dinner with family.",
+      "id": 5,
+      "status": "ACTIVE"
+    },
+    {
+      "title": "Bug Fix #BF7",
+      "description": "Some bug...",
+      "id": 6,
+      "status": "DONE"
+    },
+    {
+      "title": "Bug Fix #BF0",
+      "description": "Some bug...",
+      "id": 7,
+      "status": "DELETED"
     }
-  ],
-  "done": [],
-  "deleted": []
+  ]
 }
