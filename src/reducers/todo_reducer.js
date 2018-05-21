@@ -9,11 +9,13 @@ export default function(state = {}, action) {
 	switch(action.type) {
 
 		case TODO_NEW:
-			return { [action.payload.id]: action.payload, ...state };
+			// const updatedTodoList = { ...state, [action.payload.data.id]: action.payload.data };
+			// console.log(updatedTodoList);
+			// return updatedTodoList;
+			return state;
 
 		case TODO_LIST_ACTIVE:
-			const data = action.payload.data;
-			const todoList = _.keyBy(data, 'id');
+			const todoList = _.keyBy(action.payload.data, 'id');
 			return todoList;
 
 		default:

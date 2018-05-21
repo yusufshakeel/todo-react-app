@@ -13,8 +13,6 @@ class HomeComponent extends Component {
 
 	renderTodoList() {
 
-		console.log(this.props.todo);
-
 		return _.map(this.props.todo, item => {
 			return (
 				<li key={item.id}
