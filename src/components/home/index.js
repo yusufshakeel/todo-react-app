@@ -3,12 +3,27 @@ import React, { Component } from 'react';
 import HeaderComponent from '../header';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { fetchTodo, TODO_STATUS_ACTIVE } from '../../actions/index';
+import {
+	fetchTodo, 
+	updateStatusTodo, 
+	TODO_STATUS_ACTIVE,
+	TODO_STATUS_DONE,
+	TODO_STATUS_DELETED,
+	TODO_LIST_ACTIVE
+} from '../../actions/index';
 
 class HomeComponent extends Component {
 
 	componentDidMount() {
 		this.props.fetchTodo(TODO_STATUS_ACTIVE);
+	}
+
+	onUpdateStatus(status, item) {
+		const data = { ...item };
+		data.status = status;
+		this.props.updateStatusTodo(data, TODO_LIST_ACTIVE, this.props.todo, () => {
+			this.props.history.push('/');
+		});
 	}
 
 	renderTodoList() {
@@ -19,8 +34,14 @@ class HomeComponent extends Component {
 					className="list-group-item">
 					<Link to={`/view/${item.id}`}>{item.title}</Link>
 					<div className="btn-group pull-right">
-						<button type="button" className="btn btn-sm btn-secondary"><i className="fa fa-close"></i></button>
-						<button type="button" className="btn btn-sm btn-secondary"><i className="fa fa-check"></i></button>
+						<button
+							onClick={ () => { this.onUpdateStatus(TODO_STATUS_DELETED, item) } }
+							type="button" 
+							className="btn btn-sm btn-secondary"><i className="fa fa-close"></i></button>
+						<button
+							onClick={ () => { this.onUpdateStatus(TODO_STATUS_DONE, item) } }
+							type="button" 
+							className="btn btn-sm btn-secondary"><i className="fa fa-check"></i></button>
 					</div>
 				</li>
 			);
@@ -55,4 +76,4 @@ function mapStateToProps(state) {
 	};
 }
 
-export default connect(mapStateToProps, {fetchTodo})(HomeComponent);
+export default connect(mapStateToProps, { fetchTodo, updateStatusTodo })(HomeComponent);
