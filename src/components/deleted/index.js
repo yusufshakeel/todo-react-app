@@ -4,7 +4,8 @@ import HeaderComponent from '../header';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import {
-	fetchTodo, 
+	fetchTodo,
+	deleteTodo,
 	updateStatusTodo,
 	TODO_STATUS_ACTIVE,
 	TODO_STATUS_DELETED,
@@ -25,6 +26,12 @@ class DeletedComponent extends Component {
 		});
 	}
 
+	onDeleteTodo(item) {
+		this.props.deleteTodo(item.id, TODO_LIST_DELETED, this.props.todo, () => {
+			this.props.history.push('/deleted');
+		});
+	}
+
 	renderTodoList() {
 		return _.map(this.props.todo, item => {
 			return (
@@ -37,6 +44,7 @@ class DeletedComponent extends Component {
 							type="button" 
 							className="btn btn-sm btn-secondary"><i className="fa fa-undo"></i></button>
 						<button
+							onClick={ () => { this.onDeleteTodo(item) } }
 							type="button" 
 							className="btn btn-sm btn-secondary"><i className="fa fa-trash"></i></button>
 					</div>
@@ -72,4 +80,4 @@ function mapStateToProps(state) {
 	}
 }
 
-export default connect(mapStateToProps, { fetchTodo, updateStatusTodo })(DeletedComponent);
+export default connect(mapStateToProps, { fetchTodo, deleteTodo, updateStatusTodo })(DeletedComponent);

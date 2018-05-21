@@ -59,3 +59,24 @@ export function updateStatusTodo(item, currList, payload, callback) {
 	};
 
 }
+
+export function deleteTodo(id, currList, payload, callback) {
+
+	axios
+		.delete(`${API_HOST}/todo/${id}`)
+		.then(() => {
+
+			callback();
+
+		});
+
+	const data = _.filter(payload, (o) => {
+		return o.id !== id;
+	});
+
+	return {
+		type: currList,
+		payload: { data: data }
+	};
+
+}
