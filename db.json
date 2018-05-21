@@ -28,36 +28,36 @@
       "title": "Bug Fix #BF7",
       "description": "Some bug...",
       "id": 6,
-      "status": "DELETED"
+      "status": "DONE"
     },
     {
       "title": "Bug Fix #BF0",
       "description": "Some bug...",
       "id": 7,
-      "status": "DELETED"
+      "status": "DONE"
     },
     {
       "title": "Bug Fix #BF7",
       "description": "Some bug...",
-      "status": "DELETED",
+      "status": "DONE",
       "id": 8
     },
     {
       "title": "some stuff",
       "description": "some work",
-      "status": "DELETED",
+      "status": "DONE",
       "id": 9
     },
     {
       "title": "Hello World",
       "description": "123",
-      "status": "DELETED",
+      "status": "DONE",
       "id": 10
     },
     {
       "title": "Hello World",
       "description": "123",
-      "status": "DELETED",
+      "status": "DONE",
       "id": 11
     },
     {
