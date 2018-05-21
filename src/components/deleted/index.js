@@ -37,7 +37,7 @@ class DeletedComponent extends Component {
 			return (
 				<li key={item.id}
 					className="list-group-item">
-					<Link to={`/view/${item.id}`}>{item.title}</Link>
+					{item.title}
 					<div className="btn-group pull-right">
 						<button 
 							onClick={ () => { this.onUpdateStatus(TODO_STATUS_ACTIVE, item) } }

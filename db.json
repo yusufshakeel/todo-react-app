@@ -1,3 +1,28 @@
 {
-  "todo": []
+  "todo": [
+    {
+      "title": "some work",
+      "description": "hello world",
+      "status": "ACTIVE",
+      "id": 1
+    },
+    {
+      "title": "Hello World",
+      "description": "123",
+      "status": "DONE",
+      "id": 2
+    },
+    {
+      "title": "123",
+      "description": "789",
+      "status": "DELETED",
+      "id": 3
+    },
+    {
+      "title": "very lengthy todo list item",
+      "description": "ha ha ha",
+      "status": "ACTIVE",
+      "id": 4
+    }
+  ]
 }
