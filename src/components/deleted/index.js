@@ -2,7 +2,6 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import HeaderComponent from '../header';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import {
 	fetchTodo,
 	deleteTodo,
@@ -37,7 +36,6 @@ class DeletedComponent extends Component {
 			return (
 				<li key={item.id}
 					className="list-group-item">
-					{item.title}
 					<div className="btn-group pull-right">
 						<button 
 							onClick={ () => { this.onUpdateStatus(TODO_STATUS_ACTIVE, item) } }
@@ -48,6 +46,8 @@ class DeletedComponent extends Component {
 							type="button" 
 							className="btn btn-sm btn-secondary"><i className="fa fa-trash"></i></button>
 					</div>
+					<span className="lead">{item.title}</span>
+					<div>{item.description}</div>
 				</li>
 			);
 		});
@@ -64,7 +64,7 @@ class DeletedComponent extends Component {
 				<div className="row mt-3">
 					<div className="col-xs-12 col-sm-6 offset-sm-3">
 
-						<p className="text-center">Deleted</p>
+						<p className="text-center lead">Deleted</p>
 
 						{this.renderTodoList()}
 					</div>

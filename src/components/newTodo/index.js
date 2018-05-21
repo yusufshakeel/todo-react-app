@@ -70,7 +70,7 @@ class NewTodoComponent extends Component {
 				<div className="row mt-3">
 					<div className="col-xs-12 col-sm-6 offset-sm-3">
 						
-						<p className="text-center">Create new todo</p>
+						<p className="text-center lead">Create new todo</p>
 						
 						<form onSubmit={handleSubmit(this.onFormSubmit.bind(this))}>
 							

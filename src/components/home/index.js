@@ -2,7 +2,6 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import HeaderComponent from '../header';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import {
 	fetchTodo, 
 	updateStatusTodo, 
@@ -29,10 +28,10 @@ class HomeComponent extends Component {
 	renderTodoList() {
 
 		return _.map(this.props.todo, item => {
+
 			return (
 				<li key={item.id}
 					className="list-group-item">
-					{item.title}
 					<div className="btn-group pull-right">
 						<button
 							onClick={ () => { this.onUpdateStatus(TODO_STATUS_DELETED, item) } }
@@ -43,8 +42,11 @@ class HomeComponent extends Component {
 							type="button" 
 							className="btn btn-sm btn-secondary"><i className="fa fa-check"></i></button>
 					</div>
+					<span className="lead">{item.title}</span>
+					<div>{item.description}</div>
 				</li>
 			);
+
 		});
 
 	}
@@ -60,7 +62,7 @@ class HomeComponent extends Component {
 				<div className="row mt-3">
 					<div className="col-xs-12 col-sm-6 offset-sm-3">
 
-						<p className="text-center">Todo</p>
+						<p className="text-center lead">Todo</p>
 						
 						{this.renderTodoList()}
 					</div>
