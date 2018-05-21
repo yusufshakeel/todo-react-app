@@ -1,11 +1,11 @@
 {
-  "active": {
-    "1": {
-      "id": "1",
+  "active": [
+    {
+      "id": 1,
       "title": "Breakfast @ 7am",
       "description": "Breakfast at 7am with family."
     }
-  },
-  "done": {},
-  "deleted": {}
+  ],
+  "done": [],
+  "deleted": []
 }

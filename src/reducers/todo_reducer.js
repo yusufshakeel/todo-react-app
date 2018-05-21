@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import {
 	TODO_NEW,
 	TODO_LIST_ACTIVE
@@ -11,7 +12,9 @@ export default function(state = {}, action) {
 			return { [action.payload.id]: action.payload, ...state };
 
 		case TODO_LIST_ACTIVE:
-			return action.payload.data;
+			const data = action.payload.data;
+			const todoList = _.keyBy(data, 'id');
+			return todoList;
 
 		default:
 			return state;
