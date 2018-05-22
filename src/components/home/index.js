@@ -25,12 +25,37 @@ class HomeComponent extends Component {
 		});
 	}
 
+	onClickHandle(e) {
+
+		const id = e.currentTarget.dataset.id;
+
+		let showdescription = false;
+
+		if (e.currentTarget.dataset.showdescription === 'false') {
+			e.currentTarget.dataset.showdescription = 'true';
+			showdescription = true;
+		} else {
+			e.currentTarget.dataset.showdescription = 'false';
+			showdescription = false;
+		}
+
+		if (showdescription) {
+			document.getElementById('todo-description-' + id).classList.remove('d-none');
+		} else {
+			document.getElementById('todo-description-' + id).classList.add('d-none');
+		}
+		
+	}
+
 	renderTodoList() {
 
 		return _.map(this.props.todo, item => {
 
 			return (
 				<li key={item.id}
+					onClick={this.onClickHandle.bind(this)}
+					data-showdescription='false'
+					data-id={item.id}
 					className="list-group-item">
 					<div className="btn-group pull-right">
 						<button
@@ -43,7 +68,7 @@ class HomeComponent extends Component {
 							className="btn btn-sm btn-secondary"><i className="fa fa-check"></i></button>
 					</div>
 					<span className="lead">{item.title}</span>
-					<div>{item.description}</div>
+					<div className='d-none' id={`todo-description-${item.id}`}>{item.description}</div>
 				</li>
 			);
 
