@@ -11,6 +11,8 @@ import {
 	TODO_LIST_ACTIVE
 } from '../../actions/index';
 
+import EditComponent from '../edit';
+
 class HomeComponent extends Component {
 
 	componentDidMount() {
@@ -93,6 +95,7 @@ class HomeComponent extends Component {
 						{this.renderTodoList()}
 					</div>
 				</div>
+				<EditComponent />
 			</div>
 		);
 	}
