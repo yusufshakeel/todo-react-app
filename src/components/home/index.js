@@ -44,7 +44,7 @@ class HomeComponent extends Component {
 		} else {
 			document.getElementById('todo-description-' + id).classList.add('d-none');
 		}
-		
+
 	}
 
 	renderTodoList() {
@@ -77,6 +77,7 @@ class HomeComponent extends Component {
 	}
 
 	render() {
+
 		return (
 			<div className="container">
 				<div className="row">
