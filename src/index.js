@@ -13,7 +13,6 @@ import HomeComponent from './components/home/index';
 import NewTodoComponent from './components/newTodo/index';
 import DoneComponent from './components/done/index';
 import DeletedComponent from './components/deleted/index';
-import EditComponent from './components/edit/index';
 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
@@ -24,7 +23,6 @@ ReactDOM.render(
 				<Route path="/new" component={NewTodoComponent} />
 				<Route path="/deleted" component={DeletedComponent} />
 				<Route path="/done" component={DoneComponent} />
-				<Route path="/edit/:id" component={EditComponent} />
 				<Route path="/" component={HomeComponent} />
 			</Switch>
 		</BrowserRouter>

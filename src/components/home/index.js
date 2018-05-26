@@ -11,8 +11,6 @@ import {
 	TODO_LIST_ACTIVE
 } from '../../actions/index';
 
-import EditComponent from '../edit';
-
 class HomeComponent extends Component {
 
 	componentDidMount() {
@@ -60,7 +58,7 @@ class HomeComponent extends Component {
 					data-id={item.id}
 					className="list-group-item">
 					<div className="btn-group pull-right">
-						<button
+                        <button
 							onClick={ () => { this.onUpdateStatus(TODO_STATUS_DELETED, item) } }
 							type="button" 
 							className="btn btn-sm btn-secondary"><i className="fa fa-close"></i></button>
@@ -95,7 +93,6 @@ class HomeComponent extends Component {
 						{this.renderTodoList()}
 					</div>
 				</div>
-				<EditComponent />
 			</div>
 		);
 	}
